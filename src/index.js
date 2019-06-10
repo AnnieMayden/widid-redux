@@ -7,11 +7,17 @@ import { createLogger } from 'redux-logger'
 import { createStore, applyMiddleware } from 'redux'
 const InitialState = {
   inputValue: '',
-  listItems : []
+  listItems: []
 }
 
 render(
-  <Provider store={createStore(reducer, InitialState, applyMiddleware(createLogger({ diff: true })))}>
+  <Provider
+    store={createStore(
+      reducer,
+      InitialState,
+      applyMiddleware(createLogger({ diff: true }))
+    )}
+  >
     <App />
   </Provider>,
   document.getElementById('app')

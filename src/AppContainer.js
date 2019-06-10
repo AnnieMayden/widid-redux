@@ -3,7 +3,7 @@ import AppComponent from './AppComponent'
 
 const InitialState = {
   inputValue: '',
-  listItems : []
+  listItems: []
 }
 
 const HANDLE_INPUT_CHANGE = 'HANDLE_INPUT_CHANGE'
@@ -34,10 +34,7 @@ export const reducer = (state = InitialState, { type, payload }) => {
     case HANDLE_SUBMIT:
       return {
         ...state,
-        listItems: [
-          ...state.listItems,
-          payload.taskObject
-        ],
+        listItems: [...state.listItems, payload.taskObject],
         inputValue: ''
       }
     case ClEAR_FORM:
@@ -61,7 +58,7 @@ const mapDispatchToProps = dispatch => ({
   },
   handleSubmit: inputValue => {
     const date = new Date()
-    const newListItem =  {
+    const newListItem = {
       title: inputValue,
       time: `${date.getHours()}:${date.getMinutes()}`
     }
@@ -70,7 +67,9 @@ const mapDispatchToProps = dispatch => ({
   clearForm: _ => dispatch(clearForm())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppComponent)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AppComponent)
 
-
-//todo proptypes
+// todo proptypes
