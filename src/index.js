@@ -5,18 +5,10 @@ import { reducer } from './AppContainer'
 import { Provider } from 'react-redux'
 import { createLogger } from 'redux-logger'
 import { createStore, applyMiddleware } from 'redux'
-const InitialState = {
-  inputValue: '',
-  listItems: []
-}
 
 render(
   <Provider
-    store={createStore(
-      reducer,
-      InitialState,
-      applyMiddleware(createLogger({ diff: true }))
-    )}
+    store={createStore(reducer, applyMiddleware(createLogger({ diff: true })))}
   >
     <App />
   </Provider>,
