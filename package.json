@@ -16,6 +16,8 @@
   "dependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-regenerator": "^7.4.5",
+    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@testing-library/react": "^8.0.1",
@@ -47,7 +49,8 @@
   "babel": {
     "plugins": [
       "syntax-jsx",
-      "transform-react-jsx"
+      "transform-react-jsx",
+      "@babel/transform-regenerator"
     ]
   },
   "standard": {
