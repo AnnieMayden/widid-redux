@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:debug": "node --inspect  ./node_modules/jest/bin/jest.js --runInBand",
     "lint": "standard '**/*.js' | snazzy",
     "build": "NODE_ENV=production browserify -t envify -t babelify ./src/index.js | node node_modules/.bin/browserify-transform-cli es3ify > ./public/index.js",
     "build:dev": "browserify -d -t babelify ./src/index.js > ./public/index.js",
