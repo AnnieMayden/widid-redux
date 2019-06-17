@@ -5,7 +5,8 @@ import App, { reducer } from '../AppContainer'
 import { Provider, connect } from 'react-redux'
 import { createTaskItem } from '../AppContainer'
 import { render, fireEvent, cleanup, wait } from '@testing-library/react'
-require('@babel/polyfill')
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 
 const { describe, it, expect, afterEach } = global
 
