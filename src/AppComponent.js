@@ -11,7 +11,7 @@ const App = ({
     <div className='container'>
       <header className='heading'>
         <h1 className='main-heading'>widid a redux</h1>
-        <form onSubmit={_ => handleSubmit(inputValue)}>
+        <form onSubmit={handleSubmit(inputValue)}>
           <input
             className='input'
             onChange={event => {

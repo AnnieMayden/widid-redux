@@ -57,7 +57,8 @@ const mapDispatchToProps = dispatch => ({
   handleInputChange: value => {
     dispatch(handleInputChange(value))
   },
-  handleSubmit: inputValue => {
+  handleSubmit: inputValue => e => {
+    e.preventDefault()
     const date = new Date()
     const id = uuidv4()
     const newListItem = {
