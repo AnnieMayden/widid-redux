@@ -1,4 +1,4 @@
-import  uuidv4 from 'uuid/v4'
+import uuidv4 from 'uuid/v4'
 import { connect } from 'react-redux'
 import AppComponent from './AppComponent'
 
@@ -49,10 +49,10 @@ export const reducer = (state = InitialState, { type, payload }) => {
 }
 
 export const createTaskItem = task => ({
-    id: uuidv4(),
-    title: task,
-    time: new Date()
-  })
+  id: uuidv4(),
+  title: task,
+  time: new Date()
+})
 
 const mapStateToProps = state => ({
   inputValue: state.inputValue,

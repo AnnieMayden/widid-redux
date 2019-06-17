@@ -1,11 +1,11 @@
 import React from 'react'
-require('@babel/polyfill')
 import 'jest-dom/extend-expect'
 import { createStore } from 'redux'
 import App, { reducer } from '../AppContainer'
 import { Provider, connect } from 'react-redux'
 import { createTaskItem } from '../AppContainer'
 import { render, fireEvent, cleanup, wait } from '@testing-library/react'
+require('@babel/polyfill')
 
 const { describe, it, expect, afterEach } = global
 
@@ -53,7 +53,7 @@ describe('App', () => {
       createTaskItem('last thing to do')
     ]
 
-    const store = createStore(reducer, {listItems})
+    const store = createStore(reducer, { listItems })
 
     const { getByText, container } = render(
       <Provider store={store}>
