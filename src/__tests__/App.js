@@ -38,9 +38,8 @@ describe('App', () => {
 
     fireEvent.change(getByPlaceholderText('…'), { target: { value: 'annie' } })
 
-    const form = container.querySelector('form')
+    fireEvent.submit(container.querySelector('form'))
 
-    fireEvent.submit(form)
     expect(getByText(/annie/)).toBeInTheDocument()
     expect(getByText(/\d\d:\d\d/)).toBeInTheDocument()
   })
