@@ -23,12 +23,12 @@ describe('App', () => {
     fireEvent.change(getByPlaceholderText('…'), { target: { value: 'annie' } })
 
     const input = getByPlaceholderText('…')
+
     expect(input.value).toEqual('annie')
   })
 
   it('allows you to add a task to list', async () => {
     const store = createStore(reducer)
-
     const { getByText, getByPlaceholderText, container } = render(
       <Provider store={store}>
         <App />
@@ -54,7 +54,6 @@ describe('App', () => {
     ]
 
     const store = createStore(reducer, { listItems })
-
     const { getByText, container } = render(
       <Provider store={store}>
         <App />
@@ -62,9 +61,11 @@ describe('App', () => {
     )
 
     const items = container.getElementsByTagName('li')
+
     expect(items).toHaveLength(3)
 
     fireEvent.click(getByText(/clear list/i))
+
     expect(items).toHaveLength(0)
   })
 })
