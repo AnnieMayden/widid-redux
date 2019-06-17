@@ -45,4 +45,26 @@ describe('App', () => {
     expect(getByText(/annie/)).toBeInTheDocument()
     expect(getByText(/\d\d:\d\d/)).toBeInTheDocument()
   })
+
+  it('allows you to clear the list', async () => {
+    const listItems = [
+      createTaskItem('first thing to do'),
+      createTaskItem('next thing to do'),
+      createTaskItem('last thing to do')
+    ]
+
+    const store = createStore(reducer, {listItems})
+
+    const { getByText, findByText, getByPlaceholderText, container, debug } = render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    )
+
+    const items = container.getElementsByTagName('li')
+    expect(items).toHaveLength(3)
+
+    fireEvent.click(getByText(/clear list/i))
+    expect(items).toHaveLength(0)
+  })
 })
