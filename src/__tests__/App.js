@@ -1,13 +1,12 @@
 import React from 'react'
-import { createStore } from 'redux'
-import { Provider, connect } from 'react-redux'
-import { render, fireEvent, cleanup, wait } from '@testing-library/react'
-import App, { reducer } from '../AppContainer'
-import 'jest-dom/extend-expect'
-
 require('@babel/polyfill')
+import 'jest-dom/extend-expect'
+import { createStore } from 'redux'
+import App, { reducer } from '../AppContainer'
+import { Provider, connect } from 'react-redux'
+import { createTaskItem } from '../AppContainer'
+import { render, fireEvent, cleanup, wait } from '@testing-library/react'
 
-// TODO: use jest
 const { describe, it, expect, afterEach } = global
 
 afterEach(cleanup)
