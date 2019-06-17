@@ -1,5 +1,8 @@
 import React from 'react'
 
+const formatTime = time =>
+  `${time.getHours()}:${String(time.getMinutes()).padStart(2, '0')}`
+
 const App = ({
   inputValue,
   listItems,
@@ -43,7 +46,7 @@ const ListItem = ({ title, time }) => {
     <li>
       <p className='text'>
         {title}
-        <span className='time'>{time}</span>
+        <span className='time'>{formatTime(time)}</span>
       </p>
     </li>
   )

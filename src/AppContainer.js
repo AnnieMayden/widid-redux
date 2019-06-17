@@ -48,6 +48,12 @@ export const reducer = (state = InitialState, { type, payload }) => {
   }
 }
 
+export const createTaskItem = task => ({
+    id: uuidv4(),
+    title: task,
+    time: new Date()
+  })
+
 const mapStateToProps = state => ({
   inputValue: state.inputValue,
   listItems: state.listItems
@@ -59,14 +65,7 @@ const mapDispatchToProps = dispatch => ({
   },
   handleSubmit: inputValue => e => {
     e.preventDefault()
-    const date = new Date()
-    const id = uuidv4()
-    const newListItem = {
-      id,
-      title: inputValue,
-      time: `${date.getHours()}:${date.getMinutes()}`
-    }
-    dispatch(handleSubmit(newListItem))
+    dispatch(handleSubmit(createTaskItem(inputValue)))
   },
   clearForm: _ => dispatch(clearForm())
 })
