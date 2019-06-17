@@ -16,5 +16,4 @@
 * `yarn test`
 
 ## TODO:
-* Write tests
 * Prune dependencies
