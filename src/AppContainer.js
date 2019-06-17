@@ -1,3 +1,4 @@
+import  uuidv4 from 'uuid/v4'
 import { connect } from 'react-redux'
 import AppComponent from './AppComponent'
 
@@ -58,7 +59,9 @@ const mapDispatchToProps = dispatch => ({
   },
   handleSubmit: inputValue => {
     const date = new Date()
+    const id = uuidv4()
     const newListItem = {
+      id,
       title: inputValue,
       time: `${date.getHours()}:${date.getMinutes()}`
     }

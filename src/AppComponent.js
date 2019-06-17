@@ -25,8 +25,8 @@ const App = ({
       </header>
       <ul className='list'>
         {listItems.length !== 0 &&
-          listItems.map(({ title, time }) => (
-            <ListItem title={title} time={time} />
+          listItems.map(({ id, title, time }) => (
+            <ListItem key={id} title={title} time={time} />
           ))}
       </ul>
       <a className='button' href='#' onClick={clearForm}>
