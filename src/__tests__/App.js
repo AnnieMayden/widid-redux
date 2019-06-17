@@ -29,7 +29,7 @@ describe('App', () => {
   it('allows you to add a task to list', async () => {
     const store = createStore(reducer)
 
-    const { getByText, findByText, getByPlaceholderText, container, debug } = render(
+    const { getByText, getByPlaceholderText, container } = render(
       <Provider store={store}>
         <App />
       </Provider>
@@ -55,7 +55,7 @@ describe('App', () => {
 
     const store = createStore(reducer, {listItems})
 
-    const { getByText, findByText, getByPlaceholderText, container, debug } = render(
+    const { getByText, container } = render(
       <Provider store={store}>
         <App />
       </Provider>
