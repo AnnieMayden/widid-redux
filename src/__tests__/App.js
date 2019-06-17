@@ -14,8 +14,7 @@ afterEach(cleanup)
 describe('App', () => {
   it('allows you to type in a task', async () => {
     const store = createStore(reducer)
-
-    const { getByText, findByText, getByPlaceholderText } = render(
+    const { getByPlaceholderText } = render(
       <Provider store={store}>
         <App />
       </Provider>
@@ -23,8 +22,7 @@ describe('App', () => {
 
     fireEvent.change(getByPlaceholderText('…'), { target: { value: 'annie' } })
 
-    const input = await getByPlaceholderText('…')
-    debugger
+    const input = getByPlaceholderText('…')
     expect(input.value).toEqual('annie')
   })
 
@@ -39,14 +37,12 @@ describe('App', () => {
 
     fireEvent.change(getByPlaceholderText('…'), { target: { value: 'annie' } })
 
-
     const submitEvent = new window.Event('submit')
     const form = container.querySelector('form')
-    debug(form)
+
     form.dispatchEvent(submitEvent)
 
-    await wait(()=> {
-      expect(getByText(/annie/)).toBeInTheDocument()
-    })
+    expect(getByText(/annie/)).toBeInTheDocument()
+    expect(getByText(/\d\d:\d\d/)).toBeInTheDocument()
   })
 })
