@@ -1,6 +1,8 @@
+// @flow
 import React from 'react'
+import type Task from './Types'
 
-const formatTime = time =>
+const formatTime = (time: Date): string =>
   `${time.getHours()}:${String(time.getMinutes()).padStart(2, '0')}`
 
 const App = ({
@@ -9,6 +11,12 @@ const App = ({
   handleInputChange,
   handleSubmit,
   clearForm
+}: {
+  inputValue: string,
+  listItems: Array<Task>,
+  handleInputChange: Function,
+  handleSubmit: Function,
+  clearForm: Function,
 }) => (
   <div className='body'>
     <div className='container'>
@@ -41,7 +49,7 @@ const App = ({
 
 export default App
 
-const ListItem = ({ title, time }) => {
+const ListItem = ({ title, time }: { title: string, time: Date }) => {
   return (
     <li>
       <p className='text'>
@@ -52,4 +60,4 @@ const ListItem = ({ title, time }) => {
   )
 }
 
-// todo proptypes
+// TODO: can you specify enums and stuff/ compare to proptypes
