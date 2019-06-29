@@ -20,6 +20,7 @@
     "@babel/core": "^7.4.5",
     "@babel/plugin-transform-regenerator": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
+    "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@testing-library/react": "^8.0.1",
     "babel-plugin-syntax-jsx": "^6.18.0",
@@ -56,5 +57,7 @@
       "src/polyfill.js"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "flow-bin": "^0.102.0"
+  }
 }
