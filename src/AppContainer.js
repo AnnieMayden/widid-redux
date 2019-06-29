@@ -74,5 +74,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(AppComponent)
-
-// todo proptypes
