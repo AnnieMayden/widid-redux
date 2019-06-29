@@ -51,13 +51,6 @@
     "uuid": "^3.3.2",
     "watchify": "^3.11.1"
   },
-  "babel": {
-    "plugins": [
-      "syntax-jsx",
-      "transform-react-jsx",
-      "@babel/transform-regenerator"
-    ]
-  },
   "standard": {
     "ignore": [
       "src/polyfill.js"
