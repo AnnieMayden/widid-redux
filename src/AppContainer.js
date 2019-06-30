@@ -55,6 +55,9 @@ export const reducer = (state: State = initialState, action: Action): State => {
         listItems: []
       }
     default:
+      // TODO: works?
+      // Make sure every state change type is handled
+      ;(action: empty)
       return state
   }
 }
