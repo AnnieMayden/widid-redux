@@ -1,8 +1,19 @@
+// @flow
 import uuidv4 from 'uuid/v4'
 import { connect } from 'react-redux'
 import AppComponent from './AppComponent'
 
-const initialState = {
+import type { Task } from './Types'
+
+type State = {| +inputValue: string, +listItems: Array<Task> |}
+
+type HandleInputChange = {| type: 'HANDLE_INPUT_CHANGE', value: string |}
+type HandleSubmit = {| type: 'HANDLE_SUBMIT', task: Task |}
+type ClearForm = {| type: 'ClEAR_FORM' |}
+
+type Action = HandleInputChange | HandleSubmit | ClearForm
+
+const initialState: State = {
   inputValue: '',
   listItems: []
 }
@@ -11,31 +22,31 @@ const HANDLE_INPUT_CHANGE = 'HANDLE_INPUT_CHANGE'
 const HANDLE_SUBMIT = 'HANDLE_SUBMIT'
 const ClEAR_FORM = 'ClEAR_FORM'
 
-const handleInputChange = value => ({
+const handleInputChange = (value: string): HandleInputChange => ({
   type: HANDLE_INPUT_CHANGE,
-  payload: { value }
+  value
 })
 
-const handleSubmit = taskObject => ({
+const handleSubmit = (task: Task): HandleSubmit => ({
   type: HANDLE_SUBMIT,
-  payload: { taskObject }
+  task
 })
 
-const clearForm = _ => ({
+const clearForm = (): ClearForm => ({
   type: ClEAR_FORM
 })
 
-export const reducer = (state = initialState, { type, payload }) => {
-  switch (type) {
+export const reducer = (state: State = initialState, action: Action): State => {
+  switch (action.type) {
     case HANDLE_INPUT_CHANGE:
       return {
         ...state,
-        inputValue: payload.value
+        inputValue: action.value
       }
     case HANDLE_SUBMIT:
       return {
         ...state,
-        listItems: [...state.listItems, payload.taskObject],
+        listItems: [...state.listItems, action.task],
         inputValue: ''
       }
     case ClEAR_FORM:
@@ -48,7 +59,7 @@ export const reducer = (state = initialState, { type, payload }) => {
   }
 }
 
-export const createTaskItem = task => ({
+export const createTaskItem = (task: string): Task => ({
   id: uuidv4(),
   title: task,
   time: new Date()
@@ -60,14 +71,14 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  handleInputChange: value => {
+  handleInputChange: (value: string) => {
     dispatch(handleInputChange(value))
   },
-  handleSubmit: inputValue => e => {
+  handleSubmit: (inputValue: string) => (e: Event) => {
     e.preventDefault()
     dispatch(handleSubmit(createTaskItem(inputValue)))
   },
-  clearForm: _ => dispatch(clearForm())
+  clearForm: () => dispatch(clearForm())
 })
 
 export default connect(
