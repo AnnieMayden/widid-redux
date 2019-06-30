@@ -49,6 +49,7 @@ const App = ({
 
 export default App
 
+// TODO: pass entire task.
 const ListItem = ({ title, time }: { title: string, time: Date }) => {
   return (
     <li>
