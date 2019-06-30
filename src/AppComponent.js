@@ -13,7 +13,7 @@ const App = ({
   clearForm
 }: {|
   inputValue: string,
-  listItems: Array<Task>,
+  listItems: Task[],
   handleInputChange: Function, // TODO: signatures?
   handleSubmit: Function,
   clearForm: Function,
