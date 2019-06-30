@@ -11,13 +11,13 @@ const App = ({
   handleInputChange,
   handleSubmit,
   clearForm
-}: {
+}: {|
   inputValue: string,
   listItems: Array<Task>,
   handleInputChange: Function, // TODO: signatures?
   handleSubmit: Function,
   clearForm: Function,
-}) => (
+|}) => (
   <div className='body'>
     <div className='container'>
       <header className='heading'>
