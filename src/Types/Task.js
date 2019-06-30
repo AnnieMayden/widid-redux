@@ -1,2 +1,2 @@
 // TODO: type uuid
-export default type Task = {| id: string, title: string, time: Date |}
+export type Task = {| id: string, title: string, time: Date |}
