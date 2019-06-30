@@ -14,7 +14,7 @@ const App = ({
 }: {
   inputValue: string,
   listItems: Array<Task>,
-  handleInputChange: Function,
+  handleInputChange: Function, // TODO: signatures?
   handleSubmit: Function,
   clearForm: Function,
 }) => (
