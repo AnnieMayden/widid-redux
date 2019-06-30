@@ -2,7 +2,7 @@ import uuidv4 from 'uuid/v4'
 import { connect } from 'react-redux'
 import AppComponent from './AppComponent'
 
-const InitialState = {
+const initialState = {
   inputValue: '',
   listItems: []
 }
@@ -25,7 +25,7 @@ const clearForm = _ => ({
   type: ClEAR_FORM
 })
 
-export const reducer = (state = InitialState, { type, payload }) => {
+export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case HANDLE_INPUT_CHANGE:
       return {
