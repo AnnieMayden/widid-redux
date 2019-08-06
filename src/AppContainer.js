@@ -3,7 +3,7 @@ import uuidv4 from 'uuid/v4'
 import { connect } from 'react-redux'
 import AppComponent from './AppComponent'
 
-import type { Task } from './Types'
+import type  Task  from './Types'
 
 type State = {| +inputValue: string, +listItems: Array<Task> |}
 
