@@ -8,7 +8,6 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:debug": "node --inspect  ./node_modules/jest/bin/jest.js --runInBand",
-    "flow": "flow status --include-warnings",
     "lint": "standard '**/*.js' | snazzy",
     "build": "NODE_ENV=production webpack",
     "build:dev": "webpack",
