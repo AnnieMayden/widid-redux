@@ -1,4 +1,5 @@
 import React from 'react'
+import getCow from './cow'
 
 const formatTime = time =>
   `${time.getHours()}:${String(time.getMinutes()).padStart(2, '0')}`
@@ -13,7 +14,7 @@ const App = ({
   <div className='body'>
     <div className='container'>
       <header className='heading'>
-        <h1 className='main-heading'>widid a redux</h1>
+        <h1 className='main-heading'>widid a redux {getCow()}</h1>
         <form onSubmit={handleSubmit(inputValue)}>
           <input
             className='input'

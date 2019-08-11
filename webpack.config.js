@@ -18,7 +18,14 @@ module.exports = {
             babelrc: true
           }
         }
+      },
+      {
+        test: /\.ts(x?)$/,
+        loader: 'ts-loader'
       }
     ]
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js']
   }
 }
