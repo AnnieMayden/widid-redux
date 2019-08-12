@@ -4,7 +4,7 @@ import AppComponent from './AppComponent'
 
 import { Task }  from './Types'
 
-type State = {inputValue: string, listItems: Array<Task> } // todo required props and the only props
+type State = { inputValue: string, listItems: Array<Task> } // todo required props and the only props
 
 type HandleInputChange = { type: 'HANDLE_INPUT_CHANGE', value: string } // todo the only props
 type HandleSubmit = { type: 'HANDLE_SUBMIT', task: Task }
