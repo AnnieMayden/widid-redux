@@ -2,7 +2,7 @@ import React from 'react'
 import getCow from './cow'
 
 const formatTime = time =>
-  `${time.getHours()}:${String(time.getMinutes()).padStart(2, '0')}`
+  `${time.getHours()}:${time.getMinutes().toString().padStart(2, '0')}`
 
 const App = ({
   inputValue,

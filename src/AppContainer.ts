@@ -21,7 +21,7 @@ const handleSubmit = taskObject => ({
   payload: { taskObject }
 })
 
-const clearForm = _ => ({
+const clearForm = () => ({
   type: ClEAR_FORM
 })
 
@@ -67,7 +67,7 @@ const mapDispatchToProps = dispatch => ({
     e.preventDefault()
     dispatch(handleSubmit(createTaskItem(inputValue)))
   },
-  clearForm: _ => dispatch(clearForm())
+  clearForm: () => dispatch(clearForm())
 })
 
 export default connect(
