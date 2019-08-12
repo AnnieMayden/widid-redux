@@ -1,7 +1,9 @@
 import React from 'react'
 import getCow from './cow'
+import { Task } from './Types'
+import { string } from 'prop-types';
 
-const formatTime = (time: any) =>
+const formatTime = (time: Date) =>
   `${time.getHours()}:${time.getMinutes().toString().padStart(2, '0')}`
 
 const App = ({
@@ -11,9 +13,9 @@ const App = ({
   handleSubmit,
   clearForm
 }: {
-  inputValue: any,
-  listItems: any,
-  handleInputChange: any,
+  inputValue: string,
+  listItems: Task[],
+  handleInputChange: any, //todo: how to type something is just a function
   handleSubmit: any,
   clearForm: any
 }) => (
@@ -35,7 +37,7 @@ const App = ({
       </header>
       <ul className='list'>
         {listItems.length !== 0 &&
-          listItems.map(({ id, title, time }: { id: any, title: any, time:any }) => (
+          listItems.map(({ id, title, time }) => (
             <ListItem key={id} title={title} time={time} />
           ))}
       </ul>
@@ -48,7 +50,7 @@ const App = ({
 
 export default App
 
-const ListItem = ({ title, time }:{ title: any, time:any }) => {
+const ListItem = ({ title, time }:{ title: string, time: Date }) => {
   return (
     <li>
       <p className='text'>

@@ -2,10 +2,17 @@ import uuidv4 from 'uuid/v4'
 import { connect } from 'react-redux'
 import AppComponent from './AppComponent'
 
-const InitialState: {
-  inputValue: any
-  listItems: any[]
-} = {
+import { Task }  from './Types'
+
+type State = {inputValue: string, listItems: Array<Task> } // todo required props and the only props
+
+type HandleInputChange = { type: 'HANDLE_INPUT_CHANGE', value: string } // todo the only props
+type HandleSubmit = { type: 'HANDLE_SUBMIT', task: Task }
+type ClearForm = { type: 'ClEAR_FORM' }
+
+type Action = HandleInputChange | HandleSubmit | ClearForm
+
+const InitialState: State = {
   inputValue: '',
   listItems: []
 }
@@ -14,31 +21,31 @@ const HANDLE_INPUT_CHANGE = 'HANDLE_INPUT_CHANGE'
 const HANDLE_SUBMIT = 'HANDLE_SUBMIT'
 const ClEAR_FORM = 'ClEAR_FORM'
 
-const handleInputChange = (value: any) => ({
+const handleInputChange = (value: string): HandleInputChange => ({
   type: HANDLE_INPUT_CHANGE,
-  payload: { value }
+  value
 })
 
-const handleSubmit = (taskObject: any) => ({
+const handleSubmit = (task: Task): HandleSubmit => ({
   type: HANDLE_SUBMIT,
-  payload: { taskObject }
+  task
 })
 
-const clearForm = () => ({
+const clearForm = (): ClearForm => ({
   type: ClEAR_FORM
 })
 
-export const reducer = (state: any = InitialState, { type, payload }: { type: any, payload: any }) => {
-  switch (type) {
+export const reducer = (state: State = InitialState, action : Action): State => {
+  switch (action.type) {
     case HANDLE_INPUT_CHANGE:
       return {
         ...state,
-        inputValue: payload.value
+        inputValue: action.value
       }
     case HANDLE_SUBMIT:
       return {
         ...state,
-        listItems: [...state.listItems, payload.taskObject],
+        listItems: [...state.listItems, action.task],
         inputValue: ''
       }
     case ClEAR_FORM:
@@ -51,22 +58,22 @@ export const reducer = (state: any = InitialState, { type, payload }: { type: an
   }
 }
 
-export const createTaskItem = (task: any) => ({
+export const createTaskItem = (task: string): Task => ({
   id: uuidv4(),
   title: task,
   time: new Date()
 })
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: State) => ({
   inputValue: state.inputValue,
   listItems: state.listItems
 })
 
 const mapDispatchToProps = (dispatch: any) => ({
-  handleInputChange: (value: any) => {
+  handleInputChange: (value: string) => {
     dispatch(handleInputChange(value))
   },
-  handleSubmit: (inputValue: any) => (e: any) => {
+  handleSubmit: (inputValue: string) => (e: Event) => {
     e.preventDefault()
     dispatch(handleSubmit(createTaskItem(inputValue)))
   },
