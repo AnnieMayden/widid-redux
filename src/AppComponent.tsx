@@ -1,7 +1,7 @@
 import React from 'react'
 import getCow from './cow'
 
-const formatTime = time =>
+const formatTime = (time: any) =>
   `${time.getHours()}:${time.getMinutes().toString().padStart(2, '0')}`
 
 const App = ({
@@ -10,6 +10,12 @@ const App = ({
   handleInputChange,
   handleSubmit,
   clearForm
+}: {
+  inputValue: any,
+  listItems: any,
+  handleInputChange: any,
+  handleSubmit: any,
+  clearForm: any
 }) => (
   <div className='body'>
     <div className='container'>
@@ -29,7 +35,7 @@ const App = ({
       </header>
       <ul className='list'>
         {listItems.length !== 0 &&
-          listItems.map(({ id, title, time }) => (
+          listItems.map(({ id, title, time }: { id: any, title: any, time:any }) => (
             <ListItem key={id} title={title} time={time} />
           ))}
       </ul>
@@ -42,7 +48,7 @@ const App = ({
 
 export default App
 
-const ListItem = ({ title, time }) => {
+const ListItem = ({ title, time }:{ title: any, time:any }) => {
   return (
     <li>
       <p className='text'>
