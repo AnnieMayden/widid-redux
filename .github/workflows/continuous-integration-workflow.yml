@@ -1,0 +1,22 @@
+name: CI
+# This workflow is triggered on pushes to the repository.
+on: [push]
+
+jobs:
+  build:
+    name: CI
+    # This job runs on Linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 11.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 11.x
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build:dev
+          npm run test
+        env:
+          CI: true
