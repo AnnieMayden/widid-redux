@@ -11,7 +11,8 @@
     "lint": "standard '**/*.js' | snazzy",
     "build": "NODE_ENV=production webpack",
     "build:dev": "webpack",
-    "watch": "webpack -w"
+    "watch": "webpack -w",
+    "start:dev": "webpack-dev-server"
   },
   "jest": {},
   "dependencies": {
@@ -41,9 +42,9 @@
     "webpack-cli": "^3.3.6"
   },
   "standard": {
-    "ignore": [
-      "src/polyfill.js"
-    ]
+    "ignore": ["src/polyfill.js"]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.3"
+  }
 }
